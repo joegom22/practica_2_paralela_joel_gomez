@@ -2,6 +2,8 @@
 Problema del Puente de Tajuña
 """
 
+Idioma: Python
+
 1. Motivación
 
 El objetivo es solucionar el problema del puente de tajuña en el cual no pueden cruzar el puente de manera simultanea ni coches en sentido contrario ni coches
@@ -18,3 +20,7 @@ Para evitar dicho problema, en el archivo puente_tajuna_sin_inanicion añadimos 
 Para obtener el resultado hemos utilizado el módulo multiprocessing, concretamente un monitor con un semáforo mutex propio que bloquea el acceso simultaneo a las funciones de cruce del puente. Hemos utilizado también variables del tipo Condition que, junto a su función asociada que devuelve un booleano, permiten que un proceso ejecute una función del monitor solo cuando las condiciones para hacerlo son las correctas.
 
 3. Modo de uso
+
+Se requieren los módulos multiprocessing, random y time, los cuales pueden ser instalados fácilmente en el ordenador. 
+
+Se pueden cambiar los valores numéricos iniciales (número de coches, número de peatones, tiempo de cada uno en el puente etc) para comprobar que el programa funciona en diferentes situaciones. Basta con ejecutar el programa desde cualquier sitio que permita la ejecución de programas en python, como podría ser la propia terminal.
