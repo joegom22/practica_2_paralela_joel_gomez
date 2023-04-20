@@ -24,13 +24,13 @@ class Monitor():
         Args:
             self
         """
-        self.mutex = Lock()
-        self.p = Value('i', 0)
-        self.c0 = Value('i', 0)
-        self.c1 = Value('i', 0)
-        self.no_cars0_no_pedestrians = Condition(self.mutex)
-        self.no_cars1_no_pedestrians = Condition(self.mutex)
-        self.no_cars = Condition(self.mutex)        
+        self.mutex = Lock() #Semáforo mutex
+        self.p = Value('i', 0) # Valor compartido. Número de peatones cruzando
+        self.c0 = Value('i', 0) # Valor compartido. Número de coches cruzando en dirección 0
+        self.c1 = Value('i', 0) # Valor compartido. Número de coches cruzando en dirección 1
+        self.no_cars0_no_pedestrians = Condition(self.mutex) # Variable condición
+        self.no_cars1_no_pedestrians = Condition(self.mutex) # Variable condición
+        self.no_cars = Condition(self.mutex) # Variable condición        
     
     def are_no_cars(self) -> bool:
         """
@@ -117,7 +117,6 @@ class Monitor():
         
         Args:
             self
-            direction (int) --> Dirección en la que cruza
         """
         self.mutex.acquire()
         self.p.value -= 1
